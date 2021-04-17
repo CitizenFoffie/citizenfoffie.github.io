@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Turtle Control Panel</title>
-    <script>
-      const ws = new WebSocket("https://citizenfoffie.github.io");
-    </script>
-  </head>
+  <head> </head>
   <body>
-    <button onclick="myFunction()">Click me</button>
+    <script>
+      const ws = new WebSocket("ws://localhost:8082");
+
+      ws.addEventListener("open", () => {
+        console.log("connected");
+      });
+    </script>
   </body>
 </html>
