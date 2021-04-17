@@ -1,5 +1,5 @@
 const WebS = require("ws")
-const wss = new WebS.Server({port:8081})
+const wss = new WebS.Server({https://citizenfoffie.github.io/})
 
 wss.on("connection",ws=>{
     console.log("connection!")
