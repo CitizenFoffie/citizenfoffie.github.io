@@ -26,7 +26,7 @@ function getLocation() {
 spc = " "
 var anew
 function showPosition(position) {
-  anew = position.coords.longitude+spc+position.coords.latitude+spc
+  anew = position.coords.latitude+spc+position.coords.longitude+spc
 }
 
 getLocation()
