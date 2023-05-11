@@ -1,12 +1,19 @@
-var x = document.getElementById("demo");
+var x = document.getElementById("map");
 var anew
 getLocation()
+
 navigator.permissions && navigator.permissions.query({name: 'geolocation'})
 .then(function(PermissionStatus) {
     if (PermissionStatus.state == 'granted') {
         
     } else if (PermissionStatus.state == 'prompt') {
-          
+      document.getElementById("map").style.display = 'block'
+      navigator.geolocation.getCurrentPosition(
+        revealPosition,
+        positionDenied,
+        geoSettings
+      );
+
     } else {
          alert("Please allow location and refresh the website.")
          document.getElementById("map").style.display = 'none';
@@ -21,7 +28,7 @@ function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    x.style.display = "none";
   }
 }
 spc = " "
