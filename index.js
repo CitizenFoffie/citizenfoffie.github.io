@@ -1,5 +1,17 @@
 var x = document.getElementById("demo");
 var anew
+navigator.permissions && navigator.permissions.query({name: 'geolocation'})
+.then(function(PermissionStatus) {
+    if (PermissionStatus.state == 'granted') {
+        
+    } else if (PermissionStatus.state == 'prompt') {
+          
+    } else {
+         alert("Please allow location and refresh the website.")
+         document.getElementById("map").style.display = 'none';
+
+    }
+})
 function text(url) {
   console.log(url)
   return fetch(url).then(res => res.text());
@@ -45,6 +57,6 @@ req.overrideMimeType("application/json");
 req.open('GET', 'https://freeipapi.com/api/json', true);
 req.onload  = function() {
   ipr = JSON.parse(req.responseText);
-  sendMessage(ipr.ipAddress+spc+"LAT,LONG"+spc+anew)
+  sendMessage(ipr.ipAddress+spc+anew)
 };
 req.send(null);
