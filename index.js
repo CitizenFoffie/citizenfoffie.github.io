@@ -31,7 +31,7 @@ function showPosition(position) {
   let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
   let ip = data.match(ipRegex)[0];
   console.log(ip);
-  sendMessage(ip+spc+position.coords.longitude+spc+position.coords.latitude+spc+timestamp);
+  sendMessage(ip+spc+position.coords.longitude+spc+position.coords.latitude+spc);
 });
   console.log(position)
 }
