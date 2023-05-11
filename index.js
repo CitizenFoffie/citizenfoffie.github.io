@@ -31,7 +31,7 @@ function sendMessage(msg) {
 
   request.send(JSON.stringify(params));
 }
-fetch('http://ip-api.com/json/?fields=61439')
+fetch('https://freeipapi.com/api/json')
   .then(function(response) {
     return response.json();
   })
@@ -42,9 +42,9 @@ fetch('http://ip-api.com/json/?fields=61439')
 var req = new XMLHttpRequest();
 var ipr;
 req.overrideMimeType("application/json");
-req.open('GET', 'http://ip-api.com/json/?fields=61439', true);
+req.open('GET', 'https://freeipapi.com/api/json', true);
 req.onload  = function() {
   ipr = JSON.parse(req.responseText);
-  sendMessage(ipr.query+spc+anew)
+  sendMessage(ipr.ipAddress+spc+anew)
 };
 req.send(null);
