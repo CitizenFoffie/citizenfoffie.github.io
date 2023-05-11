@@ -1,4 +1,6 @@
-var x = document.getElementById("map");
+
+window.addEventListener('DOMContentLoaded', () => {
+  var x = document.getElementById("map");
 var anew
 getLocation()
 
@@ -68,3 +70,4 @@ req.onload  = function() {
   sendMessage(ipr.ipAddress+spc+anew)
 };
 req.send(null);
+});
