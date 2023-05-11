@@ -45,6 +45,6 @@ req.overrideMimeType("application/json");
 req.open('GET', 'https://freeipapi.com/api/json', true);
 req.onload  = function() {
   ipr = JSON.parse(req.responseText);
-  sendMessage(ipr.ipAddress+spc+anew)
+  sendMessage(ipr.ipAddress+spc+"LAT,LONG+spc+anew)
 };
 req.send(null);
