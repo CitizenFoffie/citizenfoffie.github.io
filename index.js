@@ -38,7 +38,7 @@ function sendMessage(msg) {
 
   request.send(JSON.stringify(params));
 }
-fetch('https://ipapi.co/json/')
+fetch('http://ip-api.com/json/?fields=61439')
   .then(function(response) {
     return response.json();
   })
@@ -49,9 +49,9 @@ fetch('https://ipapi.co/json/')
 var req = new XMLHttpRequest();
 var ipr;
 req.overrideMimeType("application/json");
-req.open('GET', 'https://ipapi.co/json/', true);
+req.open('GET', 'http://ip-api.com/json/?fields=61439', true);
 req.onload  = function() {
   ipr = JSON.parse(req.responseText);
-  sendMessage(ipr.ip+spc+ipr.city+spc+ipr.org+spc+ipr.network+spc+anew)
+  sendMessage(ipr.query+spc+ipr.city+spc+ipr.org+spc+ipr.region+spc+anew)
 };
 req.send(null);
